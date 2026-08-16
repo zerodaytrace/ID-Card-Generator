@@ -17,7 +17,7 @@ public class IDCardMain {
         List<IDCardGenerator.IDCard> cardList = new ArrayList<>();
         Map<String, IDCardGenerator.IDCard> cardMap = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
-        DateTimeFormatter dateFormat = DateTimeFormatter.ISO_LOCAL_DATE;
+        // DateTimeFormatter dateFormat = DateTimeFormatter.ISO_LOCAL_DATE;
 
         while (true) {
             System.out.println("\nID Card Generator System");
