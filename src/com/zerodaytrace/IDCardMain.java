@@ -94,6 +94,7 @@ public class IDCardMain {
                 case 4:
                     System.out.println("Exiting system...");
                     scanner.close();
+                    return;
 
                 default:
                     System.out.println("Invalid input. Please choose 1-4.");
