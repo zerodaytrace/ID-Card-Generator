@@ -38,26 +38,26 @@ public class IDCardMain {
             switch (choice) {
                 case 1:
                     System.out.print("First Name: ");
-                    String fName = scanner.nextLine().trim();
+                    String firstName = scanner.nextLine().trim();
                     System.out.print("Last Name: ");
-                    String lName = scanner.nextLine().trim();
+                    String lastName = scanner.nextLine().trim();
                     System.out.print("ID Number: ");
-                    String idNum = scanner.nextLine().trim();
+                    String idNumber = scanner.nextLine().trim();
                     System.out.print("Date of Birth (yyyy-MM-dd): ");
-                    String dobStr = scanner.nextLine().trim();
+                    String dateOfBirth = scanner.nextLine().trim();
                     System.out.print("Role (e.g., Student, Employee, Admin): ");
                     String role = scanner.nextLine().trim();
 
 
-                    if (cardMap.containsKey(idNum)) {
+                    if (cardMap.containsKey(idNumber)) {
                         System.out.println("Error: ID Number already exists in the system!");
                         break;
                     }
 
                     try {
-                        IDCardGenerator.IDCard newCard = new IDCardGenerator.IDCard(fName, lName, idNum, dobStr, role);
+                        IDCardGenerator.IDCard newCard = new IDCardGenerator.IDCard(firstName, lastName, idNumber, dateOfBirth, role);
                         cardList.add(newCard);
-                        cardMap.put(idNum, newCard);
+                        cardMap.put(idNumber, newCard);
                         System.out.println("ID Card generated successfully!");
                     } catch (Exception e) {
                         System.out.println("Invalid date format. Please use yyyy-MM-dd format");
