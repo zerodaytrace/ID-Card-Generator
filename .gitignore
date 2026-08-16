@@ -1,4 +1,5 @@
 ### IntelliJ IDEA ###
+.idea/vcs.xml
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
