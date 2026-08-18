@@ -1,15 +1,14 @@
 package com.zerodaytrace;
 
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Comparator;
 
 
 public class IDCardMain {
@@ -17,7 +16,6 @@ public class IDCardMain {
         List<IDCardGenerator.IDCard> cardList = new ArrayList<>();
         Map<String, IDCardGenerator.IDCard> cardMap = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
-        // DateTimeFormatter dateFormat = DateTimeFormatter.ISO_LOCAL_DATE;
 
         while (true) {
             System.out.println("\nID Card Generator System");

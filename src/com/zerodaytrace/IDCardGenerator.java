@@ -5,6 +5,10 @@ import java.time.format.DateTimeFormatter;
 
 public class IDCardGenerator {
     static class IDCard implements Comparable<IDCard> {
+        private static final String TITLE = "ID CARD";
+        private static final int LABEL_WIDTH = 11;
+        private static final int MIN_INTERIOR_WIDTH = 30;
+
         private String firstName;
         private String lastName;
         private String idNumber;
@@ -28,18 +32,35 @@ public class IDCardGenerator {
 
         @Override
         public String toString() {
-            return String.format("┌──────────────────────────────┐\n" +
-                    "│         ID CARD              │\n" +
-                    "├──────────────────────────────┤\n" +
-                    "│ Name:      %-16s │\n" +
-                    "│ ID Number: %-16s │\n" +
-                    "│ DOB:       %-16s │\n" +
-                    "│ Role:      %-16s │\n" +
-                    "└──────────────────────────────┘",
-                    firstName + " " + lastName,
-                    idNumber,
-                    dateOfBirth.toString(),
-                    role);
+            String[][] fields = {
+                    {"Name:", firstName + " " + lastName},
+                    {"ID Number:", idNumber},
+                    {"DOB:", dateOfBirth.toString()},
+                    {"Role:", role}
+            };
+
+            int valueWidth = MIN_INTERIOR_WIDTH - LABEL_WIDTH - 2;
+            for (String[] field : fields) {
+                valueWidth = Math.max(valueWidth, field[1].length());
+            }
+            int interiorWidth = LABEL_WIDTH + valueWidth + 2;
+            String horizontalRule = "─".repeat(interiorWidth);
+            String rowFormat = "│ %-" + LABEL_WIDTH + "s%-" + valueWidth + "s │\n";
+
+            StringBuilder card = new StringBuilder();
+            card.append('┌').append(horizontalRule).append("┐\n");
+            card.append('│').append(center(TITLE, interiorWidth)).append("│\n");
+            card.append('├').append(horizontalRule).append("┤\n");
+            for (String[] field : fields) {
+                card.append(String.format(rowFormat, field[0], field[1]));
+            }
+            card.append('└').append(horizontalRule).append('┘');
+            return card.toString();
+        }
+
+        private static String center(String text, int width) {
+            int leftPadding = (width - text.length()) / 2;
+            return " ".repeat(leftPadding) + text + " ".repeat(width - text.length() - leftPadding);
         }
 
         @Override
