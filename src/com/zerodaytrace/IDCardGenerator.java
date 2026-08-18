@@ -1,7 +1,6 @@
 package com.zerodaytrace;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class IDCardGenerator {
     static class IDCard implements Comparable<IDCard> {
@@ -19,7 +18,7 @@ public class IDCardGenerator {
             this.firstName = firstName;
             this.lastName = lastName;
             this.idNumber = idNumber;
-            this.dateOfBirth = LocalDate.parse(dateOfBirth, DateTimeFormatter.ISO_LOCAL_DATE);
+            this.dateOfBirth = LocalDate.parse(dateOfBirth);
             this.role = role;
         }
 
