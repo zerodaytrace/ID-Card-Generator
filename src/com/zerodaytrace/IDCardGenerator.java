@@ -13,13 +13,15 @@ public class IDCardGenerator {
         private String idNumber;
         private LocalDate dateOfBirth;
         private String role;
+        private String gender;
 
-        public IDCard(String firstName, String lastName, String idNumber, String dateOfBirth, String role) {
+        public IDCard(String firstName, String lastName, String idNumber, String dateOfBirth, String role, String gender) {
             this.firstName = firstName;
             this.lastName = lastName;
             this.idNumber = idNumber;
             this.dateOfBirth = LocalDate.parse(dateOfBirth);
             this.role = role;
+            this.gender = gender;
         }
 
 
@@ -28,6 +30,8 @@ public class IDCardGenerator {
         public String getIdNumber() { return idNumber; }
         public LocalDate getDateOfBirth() { return dateOfBirth; }
         public String getRole() { return role; }
+        public String getGender() { return gender; }
+
 
         @Override
         public String toString() {
@@ -35,7 +39,8 @@ public class IDCardGenerator {
                     {"Name:", firstName + " " + lastName},
                     {"ID Number:", idNumber},
                     {"DOB:", dateOfBirth.toString()},
-                    {"Role:", role}
+                    {"Role:", role},
+                    {"Gender:", gender}
             };
 
             int valueWidth = MIN_INTERIOR_WIDTH - LABEL_WIDTH - 2;

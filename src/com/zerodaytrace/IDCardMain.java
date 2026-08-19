@@ -45,6 +45,8 @@ public class IDCardMain {
                     String dateOfBirth = scanner.nextLine().trim();
                     System.out.print("Role (e.g., Student, Employee, Admin): ");
                     String role = scanner.nextLine().trim();
+                    System.out.print("Gender (M/F): ");
+                    String gender = scanner.nextLine().trim();
 
 
                     if (cardMap.containsKey(idNumber)) {
@@ -53,7 +55,7 @@ public class IDCardMain {
                     }
 
                     try {
-                        IDCardGenerator.IDCard newCard = new IDCardGenerator.IDCard(firstName, lastName, idNumber, dateOfBirth, role);
+                        IDCardGenerator.IDCard newCard = new IDCardGenerator.IDCard(firstName, lastName, idNumber, dateOfBirth, role, gender);
                         cardList.add(newCard);
                         cardMap.put(idNumber, newCard);
                         System.out.println("ID Card generated successfully!");
